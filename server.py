@@ -42,7 +42,7 @@ def hello_world():
 	return render_template("index.html")
     
 @app.route("/unsubscribe")
-def hello_world():
+def unsubscribe():
 	return render_template("unsubscribe.html")
 
 @app.route("/unsubscribe/submit", methods=["POST"])
