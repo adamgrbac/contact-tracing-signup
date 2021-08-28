@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+	<meta charset="UTF-8">
+	<title>Covid Exposure Site Mailer Unsubscribe</title>
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.css') }}">
+	<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+	<script src='https://www.google.com/recaptcha/api.js' async defer></script>
+	<script type="text/javascript">
+		var enableBtn = function() {
+			document.getElementById('submitBtn').disabled = false;
+		}
+	</script>
+	<style>
+		.custom_narrow {
+			width: 50%;
+		}
+	</style>
+	<body>
+		<div id="headerText">
+			<h1 class="d-flex justify-content-center">Covid-19 Exposure Site Mailer</h1>
+			<h3 class="d-flex justify-content-center">Unsubscribe Form</h3>
+			<p class="d-flex justify-content-center">Enter your email address and choose the state for which you would like to unsubscribe.</p>
+		</div>
+		<form method="post" action="submit">
+			<div class="row">
+				<div class="col-sm"></div>
+				<div class="form-group col-sm justify-content-center">
+					<label for="email" class="d-flex justify-content-center">Email address</label>
+					<input class="form-control d-flex justify-content-center" type="text" id="email" name="email" size="10">
+				</div>
+				<div class="col-sm"></div>
+			</div>
+			<div class="form-group d-flex justify-content-center">
+				<div class="form-check form-check-inline">
+					<input class="form-check-input" type="radio" id="qld" name="state" value="QLD">
+					<label class="form-check-label" for="qld">QLD</label>
+				</div>
+				<div class="form-check form-check-inline">
+					<input class="form-check-input" type="radio" id="nsw" name="state" value="NSW">
+					<label class="form-check-label" for="nsw">NSW</label>
+				</div>
+				<div class="form-check form-check-inline">
+					<input class="form-check-input" type="radio" id="vic" name="state" value="VIC">
+					<label class="form-check-label" for="vic">VIC</label>
+				</div>
+				<div class="form-check form-check-inline">
+					<input class="form-check-input" type="radio" id="act" name="state" value="ACT">
+					<label class="form-check-label" for="act">ACT</label>
+				</div>
+				<div class="form-check form-check-inline">
+					<input class="form-check-input" type="radio" id="wa" name="state" value="WA">
+					<label class="form-check-label" for="wa">WA</label>
+				</div>
+			</div>
+			<div class="form-group d-flex justify-content-center">
+				<div class="g-recaptcha" data-sitekey="6LcrLAQcAAAAAK46uSKMX1yGIcfd_6AYto27daYT" data-callback="enableBtn"></div>
+			</div>
+			<div class="form-group d-flex justify-content-center">
+				<button class="btn btn-primary" type="submit" id="submitBtn" disabled=true>Unsubscribe</button>
+			</div>
+		</form>
+	</body>
+</html>
