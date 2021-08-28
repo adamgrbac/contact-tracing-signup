@@ -59,7 +59,7 @@ def submit():
             add_to_list(request.form.get('email'),request.form.get('state')) 
             return f"<p>{request.form.get('email')} added to {request.form.get('state')} list!</p>"
     else:
-        return f"Captcha challenge failed! Try again."
+        return "Captcha challenge failed! Try again."
 	
 if __name__ == "__main__":
 	app.run(host="0.0.0.0", port=1337)
