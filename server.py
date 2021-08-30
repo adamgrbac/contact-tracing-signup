@@ -18,6 +18,7 @@ def add_to_list(email, state):
         with open(config["state_dict"][state], "w+") as tmp:
             yaml.dump(email_config, tmp, default_flow_style=False)
         yag.send(to="adam.grbac@gmail.com", subject="New Covid Mailer User!", contents=f"{email} added to {state} dist list!")
+        yag.send(to=email.lower(), subject=f"You've been added to the {state} Covid Mailer!", contents="Welcome!")
     else:
         print("Already on list!")
 
