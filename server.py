@@ -18,7 +18,7 @@ def add_to_list(email, state):
         with open(config["state_dict"][state], "w+") as tmp:
             yaml.dump(email_config, tmp, default_flow_style=False)
         yag.send(to="adam.grbac@gmail.com", subject="New Covid Mailer User!", contents=f"{email} added to {state} dist list!")
-        yag.send(to=email.lower(), subject=f"You've been added to the {state} Covid Mailer!", contents="Welcome!")
+        yag.send(to=email.lower(), subject=f"You've been added to the {state} Covid Mailer!", contents='<h2>Welcome!<h2><br><br>To unsubcribe at any time just click <a href="https://covidmailer.au.ngrok.io/unsubscribe">here</a> and fill out the form.')
     else:
         print("Already on list!")
 
@@ -32,6 +32,7 @@ def remove_from_list(email, state):
         with open(config["state_dict"][state], "w+") as tmp:
             yaml.dump(email_config, tmp, default_flow_style=False)
         yag.send(to="adam.grbac@gmail.com", subject="Unsubscribed Covid Mailer User!", contents=f"{email} removed from {state} dist list!")
+        yag.send(to=email.lower(), subject=f"Successfully unsubscribed from {state} Covid Mailer!", contents='<h2>Goodbye! Thanks for using the service!</h2><br><br>To sign up again just click <a href="https://covidmailer.au.ngrok.io">here</a> and fill out the form.')
     else:
         print("Not in list!")
 
